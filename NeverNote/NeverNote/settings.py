@@ -14,6 +14,7 @@ import os
 from dotenv import load_dotenv
 from urllib.parse import urlparse
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,12 +24,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p#cbl=qlxh#y-ds8vj(8tj=u659)a(ta#5)=$1wx%!pay==#7r'
+# SECRET_KEY = 'django-insecure-p#cbl=qlxh#y-ds8vj(8tj=u659)a(ta#5)=$1wx%!pay==#7r'         # done by Abhijit to see if keeping it in other files work
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['10.0.2.2','127.0.0.1', '0.0.0.0','172.26.83.117']
+ALLOWED_HOSTS = ['10.0.2.2','127.0.0.1', '0.0.0.0','172.26.83.117' ,
+                '*',                                                 #the '*' is a temporary measure to hellp while deploying, remember to fill in exact site and remove the all option    
+                ]                   
 
 
 # Application definition
@@ -116,15 +120,24 @@ CORS_ALLOWED_ORIGINS = [
 #         'PORT': tmpPostgres.port,
 #     }
 # }
+
+# following commented out to test deployment
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'NeverNote',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin',
+#         'HOST': 'localhost',  # Set to 'localhost' if the database is on the same machine
+#         'PORT': '5432',  # Default is '5432'
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'NeverNote',
-        'USER': 'postgres',
-        'PASSWORD': 'kalisto',
-        'HOST': 'localhost',  # Set to 'localhost' if the database is on the same machine
-        'PORT': '5432',  # Default is '5432'
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL', 'postgres://postgres:admin@localhost:5432/NeverNote')
+    )
 }
 
 # Password validation
@@ -162,6 +175,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

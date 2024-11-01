@@ -51,6 +51,7 @@ EXTERNAL_APPS = [
     'module',
     'rest_framework',
     'api',
+    'module',                        #let me see if this works out
     
 ]
 

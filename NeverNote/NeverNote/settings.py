@@ -45,16 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-]
-
-EXTERNAL_APPS = [
     'module',
     'rest_framework',
     'api',
-    
 ]
 
-INSTALLED_APPS = INSTALLED_APPS + EXTERNAL_APPS
+# EXTERNAL_APPS = [
+#     'module',
+#     'rest_framework',
+#     'api',
+    
+# ]
+
+# INSTALLED_APPS = INSTALLED_APPS + EXTERNAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

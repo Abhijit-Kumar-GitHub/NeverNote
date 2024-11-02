@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 from os import getenv
 import os
-from dotenv import load_dotenv
-from urllib.parse import urlparse
+# from dotenv import load_dotenv
+# from urllib.parse import urlparse
 from pathlib import Path
 import dj_database_url
 
@@ -50,7 +50,7 @@ INSTALLED_APPS = [
 EXTERNAL_APPS = [
     'module',
     'rest_framework',
-    'api'
+    'api',
     
 ]
 

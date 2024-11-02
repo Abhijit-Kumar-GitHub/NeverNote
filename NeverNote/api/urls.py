@@ -1,4 +1,3 @@
-from api.views import *
 from django.urls import path
 from api.views import *
 

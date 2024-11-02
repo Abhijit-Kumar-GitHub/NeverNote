@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
-from .models import *
+from module.models import NotesModel, UserModel
+
+
 
 class UserModelSerializer(serializers.ModelSerializer):
     class Meta:

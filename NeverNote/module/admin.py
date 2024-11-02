@@ -1,5 +1,7 @@
 from django.contrib import admin
-from models import *
+
+from module.models import UserModel, NotesModel
+# from models import *
 # Register your models here.
 
 

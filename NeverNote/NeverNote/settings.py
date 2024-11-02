@@ -134,9 +134,14 @@ CORS_ALLOWED_ORIGINS = [
 # }
 
 
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL', 'postgres://postgres:admin@localhost:5432/NeverNote')
+#     )
+# }
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgres://postgres:admin@localhost:5432/NeverNote')
+        default='postgresql://nevernote_db_user:3EXqrSsebxs3SXaa3fd5ebxUTyu3qyL7@dpg-csiajsl6l47c73f6kgf0-a.oregon-postgres.render.com/nevernote_db'
     )
 }
 

@@ -1,8 +1,8 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 
-# Create your views here.
+# # Create your views here.
 
 
-# def UserDetails(request):
-#     response = ''
-#     return response
+# # def UserDetails(request):
+# #     response = ''
+# #     return response

@@ -7,8 +7,8 @@ class UserModelSerializer(serializers.ModelSerializer):
         model = UserModel
         fields = '__all__'
         
-def create(self, validated_data):
-    return UserModel.objects.create(**validated_data)
+    def create(self, validated_data):
+        return UserModel.objects.create(**validated_data)
 
 
 class NotesModelSerializer(serializers.ModelSerializer):
@@ -16,5 +16,5 @@ class NotesModelSerializer(serializers.ModelSerializer):
         model = NotesModel
         fields = '__all__'
         
-def create(self, validated_data):
-    return NotesModel.objects.create(**validated_data)
+    def create(self, validated_data):
+        return NotesModel.objects.create(**validated_data)

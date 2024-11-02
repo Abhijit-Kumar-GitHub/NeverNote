@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-p#cbl=qlxh#y-ds8vj(8tj=u659)a(ta#5)=$1wx%!pay==#7r
 # SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret-key")          #Nah too much issues
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['10.0.2.2','127.0.0.1', '0.0.0.0','172.26.83.117' ,
                 '*',                                                 #the '*' is a temporary measure to hellp while deploying, remember to fill in exact site and remove the all option    
@@ -50,8 +50,7 @@ INSTALLED_APPS = [
 EXTERNAL_APPS = [
     'module',
     'rest_framework',
-    'api',
-    'module',                        #let me see if this works out
+    'api'
     
 ]
 
